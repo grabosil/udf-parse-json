@@ -18,12 +18,12 @@ function(COMPILE_TO_IR SRC_FILE)
   add_custom_target(${BASE_NAME}-ir ALL DEPENDS ${OUTPUT_FILE})
 endfunction(COMPILE_TO_IR)
 
-add_library(parsejson SHARED parse-json.cc)
+add_library(parsejson SHARED src/parse-json.cc)
 
 if (CLANG_EXECUTABLE)
-  COMPILE_TO_IR(parse-json.cc)
+  COMPILE_TO_IR(src/parse-json.cc)
 endif(CLANG_EXECUTABLE)
 
 target_link_libraries(parsejson ImpalaUdf)
-add_executable(udf_json_parse_test udf_json_parse_test.cc)
+add_executable(udf_json_parse_test test/udf_json_parse_test.cc)
 target_link_libraries(udf_json_parse_test parsejson)

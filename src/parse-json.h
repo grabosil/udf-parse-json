@@ -11,7 +11,4 @@ using namespace impala_udf;
 //        > select parse_json('{"test":"test2"}', "test");
 
 StringVal ParseJSON(FunctionContext* context, const StringVal& arg1, const StringVal& arg2);
-std::string evaluateObject(const std::string& s);
-std::string makeLastCharValid(std::string s);
-const std::string currentDateTime();
 #endif
